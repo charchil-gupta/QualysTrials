@@ -24,7 +24,3 @@ python pythonscript.py result.json
 
 
 
-
-
-
-
