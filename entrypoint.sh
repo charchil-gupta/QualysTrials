@@ -1,4 +1,4 @@
-#!/bin/sh -l
+#!/bin/bash
 
 #echo "action_state=`git log -n 2 --pretty=format:"%H" | tail -1`" >> $GITHUB_ENV
 #git diff --name-only --diff-filter=ACMRT ${{ github.sha }} ${{ env.action_state }}
