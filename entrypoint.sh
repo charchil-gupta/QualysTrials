@@ -19,8 +19,3 @@ cat result.json
 
 #process result for annotation
 python pythonscript.py result.json
-
-
-
-
-
