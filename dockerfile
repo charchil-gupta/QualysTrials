@@ -11,4 +11,4 @@ RUN pip3 install Qualys_IaC_Security-1.3.2-py3-none-any.whl
 RUN ["chmod", "+x", "/entrypoint.sh"]
 
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["sh","/entrypoint.sh"]
