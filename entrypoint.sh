@@ -19,8 +19,9 @@ then
     #process result for annotation
     echo " "
     echo "\e[4mSCAN RESULT\e[0m"
-    ls -ltr /
-    python /resultParser.py result.json
+    cd /
+    ls -ltr 
+    python resultParser.py result.json
 else
     if [ "$SCANFOLDER" = "." ]
     then 
