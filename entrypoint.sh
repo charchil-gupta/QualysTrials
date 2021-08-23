@@ -11,6 +11,7 @@ then
     mkdir scanfolder
     cp --parents $(git diff --name-only --diff-filter=ACMRT HEAD^ HEAD) scanfolder
     cd scanfolder
+    SCANFOLDER="."
 else
     if [ "$SCANFOLDER" = "." ]
     then 
