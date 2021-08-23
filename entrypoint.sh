@@ -18,7 +18,7 @@ then
     echo " "
     echo "\e[4mSCAN RESULT\e[0m"
     cd ..
-    python pythonscript.py result.json
+    python resultParser.py result.json
 else
     if [ "$SCANFOLDER" = "." ]
     then 
@@ -34,7 +34,7 @@ else
     #process result for annotation
     echo " "
     echo "\e[4mSCAN RESULT\e[0m"
-    python pythonscript.py result.json
+    python resultParser.py result.json
 fi
 
 
