@@ -1,6 +1,6 @@
 #!/bin/sh -l
 
-ls -ltr
+ls -ltr /
 
 SCANFOLDER=$1
 
@@ -20,8 +20,9 @@ then
     echo " "
     echo "\e[4mSCAN RESULT\e[0m"
     cd ..
+    cd /
     ls -ltr
-    python resultParser.py result.json
+    python /resultParser.py result.json
 else
     if [ "$SCANFOLDER" = "." ]
     then 
@@ -37,6 +38,7 @@ else
     #process result for annotation
     echo " "
     echo "\e[4mSCAN RESULT\e[0m"
+    cd /
     ls -ltr
     python resultParser.py result.json
 fi
