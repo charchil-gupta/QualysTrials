@@ -22,7 +22,10 @@ def print_error_message(result):
                     else:
                         error_message += keys_names[k] + "=" + r.get(keys[k]) + ", "
                 else:
-                    error_message += keys_names[k] + "=None" + ", "
+                    if keys[k] == "cvControl":
+                        error_message += "Qualys CID=None, Control Name=None, "
+                    else:
+                        error_message += keys_names[k] + "=None" + ", "
             if error_message.endswith(", "):
                 error_message = error_message[:-2]
 
