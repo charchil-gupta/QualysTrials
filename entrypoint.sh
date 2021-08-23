@@ -30,7 +30,6 @@ fi
  echo "\e[4mSCAN RESULT\e[0m"
  mv result.json /result.json
  cd /
- ls -ltr 
  python resultParser.py result.json
 
 
