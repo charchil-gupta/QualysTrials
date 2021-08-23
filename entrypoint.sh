@@ -1,17 +1,49 @@
-#/bin/sh -l
-rm -rf ./scan
+#!/bin/sh -l
 
-mkdir scan
+SCANFOLDER=$1
 
-#validate
-find . -name \*.tf -o -name  \*.template -o -name \*.yml -o -name \*yaml -o -name \*.json | xargs -I '{}' cp {} ./scan
+echo "Action triggered by $GITHUB_EVENT_NAME event"
 
-#call cli
-qiac scan -a $URL -u $UNAME -p $PASS -d ./scan --format json -n charchiltagtest --tag [{\"BRANCH_NAME\":\"$GITHUB_REF\"}] > result.json
+if [ $GITHUB_EVENT_NAME = "push" ] || [ $GITHUB_EVENT_NAME = "pull_request" ]
+then
+    echo "Below files will be included in scan"
+    git diff --diff-filter=d HEAD^ HEAD --name-only
+    mkdir scanfolder
+    cp --parents $(git diff --name-only --diff-filter=ACMRT HEAD^ HEAD) scanfolder
+    cd scanfolder
+    echo "Scanning Started at - $(date +"%Y-%m-%d %H:%M:%S")"
+    qiac scan -a $URL -u $UNAME -p $PASS -d $SCANFOLDER --format json -n GitHubActionScan --tag [{\"BRANCH_NAME\":\"$GITHUB_REF\"},{\"REPOSITORY_NAME\":\"$GITHUB_REPOSITORY\"}] > ../result.json
+    echo "Scanning Completed at - $(date +"%Y-%m-%d %H:%M:%S")"
+    #process result for annotation
+    echo " "
+    echo "\e[4mSCAN RESULT\e[0m"
+    cd ..
+    python pythonscript.py result.json
+else
+    if [ "$SCANFOLDER" = "." ]
+    then 
+        echo "Scanning entire repository"
+    else
+        echo "Scan Directory Path is - $SCANFOLDER"
+    fi
 
-ls -ltr
+    #Calling Iac CLI
+    echo "Scanning Started at - $(date +"%Y-%m-%d %H:%M:%S")"
+    qiac scan -a $URL -u $UNAME -p $PASS -d $SCANFOLDER --format json -n GitHubActionScan --tag [{\"BRANCH_NAME\":\"$GITHUB_REF\"},{\"REPOSITORY_NAME\":\"$GITHUB_REPOSITORY\"}] > result.json
+     echo "Scanning Completed at - $(date +"%Y-%m-%d %H:%M:%S")"
+    #process result for annotation
+    echo " "
+    echo "\e[4mSCAN RESULT\e[0m"
+    python pythonscript.py result.json
+fi
 
-cat result.json
 
-#process result for annotation
-python pythonscript.py result.json
+
+
+
+
+
+
+
+
+
