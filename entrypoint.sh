@@ -29,7 +29,6 @@ fi
  echo " "
  echo "\e[4mSCAN RESULT\e[0m"
  cd /
- cat result.json
  python resultParser.py result.json
 
 
