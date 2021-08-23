@@ -1,5 +1,7 @@
 #!/bin/sh -l
 
+ls -ltr
+
 SCANFOLDER=$1
 
 echo "Action triggered by $GITHUB_EVENT_NAME event"
@@ -18,6 +20,7 @@ then
     echo " "
     echo "\e[4mSCAN RESULT\e[0m"
     cd ..
+    ls -ltr
     python resultParser.py result.json
 else
     if [ "$SCANFOLDER" = "." ]
@@ -34,6 +37,7 @@ else
     #process result for annotation
     echo " "
     echo "\e[4mSCAN RESULT\e[0m"
+    ls -ltr
     python resultParser.py result.json
 fi
 
