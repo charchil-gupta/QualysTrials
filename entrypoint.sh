@@ -32,11 +32,13 @@ else
 
     #Calling Iac CLI
     echo "Scanning Started at - $(date +"%Y-%m-%d %H:%M:%S")"
-    qiac scan -a $URL -u $UNAME -p $PASS -d $SCANFOLDER --format json -n GitHubActionScan --tag [{\"BRANCH_NAME\":\"$GITHUB_REF\"},{\"REPOSITORY_NAME\":\"$GITHUB_REPOSITORY\"}] > result.json
+    qiac scan -a $URL -u $UNAME -p $PASS -d $SCANFOLDER --format json -n GitHubActionScan --tag [{\"BRANCH_NAME\":\"$GITHUB_REF\"},{\"REPOSITORY_NAME\":\"$GITHUB_REPOSITORY\"}] > /result.json
     echo "Scanning Completed at - $(date +"%Y-%m-%d %H:%M:%S")"
     #process result for annotation
     echo " "
     echo "\e[4mSCAN RESULT\e[0m"
+    cd /
+     ls -ltr 
     python resultParser.py result.json
 fi
 
