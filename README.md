@@ -130,7 +130,7 @@ jobs:
 ```
 
 ## Prerequisites for Qualys Iac GithHub Action
-1. Valid Qualys Credentials and subscription of Qualys IaC module.
+1. Valid Qualys Credentials and subscription of Qualys CloudView module.
 2. Use of `actions/checkout@v2` with ` fetch-depth: 0` before calling Qualys IaC action.
 3. `Qualys URL, Qualys Username , Qualys Password` to be added in `secrets` and provided as `environment variables` to the Qualys IaC action.
 4. Self-hosted runners must use a Linux operating system and have Docker installed to run this action.
