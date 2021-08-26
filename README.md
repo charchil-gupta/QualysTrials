@@ -4,8 +4,8 @@
 ## Description
 Qualys IaC GitHub action is used to scan the Infrastructure-as-Code templates in your GitHub action pipeline using Qualys CloudView (Cloud Security Assessment). It checks for security issues using the Qualys Cloud Infrastructure as Code Scan on the IaC files present in the repository. This action results can be viewed as pipeline annotations.
 
-Note: Qualys IaC GitHub action supports below file formats for scanning :- 
-`Terraform supported extensions` - .tf, .json,
+Note: Qualys IaC GitHub action supports below file formats for scanning \ 
+`Terraform supported extensions` - .tf, .json, \
 `CloudFormation supported extensions` - .template, .yml, .yaml
 
 
