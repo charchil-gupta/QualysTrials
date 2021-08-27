@@ -10,8 +10,10 @@ then
     git diff --diff-filter=d HEAD^ HEAD --name-only
     foldername="qiacscanfolder_$(date +%Y%m%d%H%M%S)"
     mkdir $foldername
+    ls -ltr
     cp --parents "$(git diff --name-only --diff-filter=ACMRT HEAD^ HEAD)" $foldername
     cd $foldername
+    ls -ltr
     SCANFOLDER="."
 else
     if [ "$SCANFOLDER" = "." ]
