@@ -129,7 +129,7 @@ jobs:
               directory: 'path of directory to scan (optional)'
 ```
 
-## Prerequisites for Qualys Iac GithHub Action
+## Prerequisites for Qualys IaC GithHub Action
 1. Valid Qualys Credentials and subscription of Qualys CloudView module.
 2. Use of `actions/checkout@v2` with ` fetch-depth: 0` before calling Qualys IaC GitHub action.
 3. `Qualys URL, Qualys Username , Qualys Password` to be added in `secrets` and provided as `environment variables` to the Qualys IaC GitHub action.
