@@ -9,7 +9,7 @@ then
     echo "Below files will be included in scan"
     git diff --diff-filter=d HEAD^ HEAD --name-only
     mkdir scanfolder
-    cp --parents $(git diff --name-only --diff-filter=ACMRT HEAD^ HEAD) scanfolder
+    cp --parents "$(git diff --name-only --diff-filter=ACMRT HEAD^ HEAD)" scanfolder
     cd scanfolder
     SCANFOLDER="."
 else
