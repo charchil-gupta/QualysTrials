@@ -8,9 +8,10 @@ if [ $GITHUB_EVENT_NAME = "push" ] || [ $GITHUB_EVENT_NAME = "pull_request" ]
 then
     echo "Below files will be included in scan"
     git diff --diff-filter=d HEAD^ HEAD --name-only
-    mkdir scanfolder
-    cp --parents "$(git diff --name-only --diff-filter=ACMRT HEAD^ HEAD)" scanfolder
-    cd scanfolder
+    foldername="qiacscanfolder_$(date +%Y%m%d%H%M%S)"
+    mkdir $foldername
+    cp --parents "$(git diff --name-only --diff-filter=ACMRT HEAD^ HEAD)" $foldername
+    cd $foldername
     SCANFOLDER="."
 else
     if [ "$SCANFOLDER" = "." ]
