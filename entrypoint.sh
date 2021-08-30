@@ -7,9 +7,10 @@ echo "Action triggered by $GITHUB_EVENT_NAME event"
 if [ $GITHUB_EVENT_NAME = "push" ] || [ $GITHUB_EVENT_NAME = "pull_request" ]
 then
     echo "Below files will be included in scan"
-    if [ `git diff --diff-filter=d HEAD^ HEAD --name-only` ] 
+    echo $(git diff --name-only --diff-filter=ACMRT HEAD^ HEAD | wc -l)
+    if [ $(git diff --name-only --diff-filter=ACMRT HEAD^ HEAD | wc -l) -eq "0" ]; then 
     then
-        echo git diff --diff-filter=d HEAD^ HEAD --name-only
+        git diff --name-only --diff-filter=ACMRT HEAD^ HEAD
     else
         echo "There are no files/folders to scan"
         exit 0
