@@ -9,7 +9,6 @@ then
     echo "Below files will be included in scan"
     echo $(git diff --name-only --diff-filter=ACMRT HEAD^ HEAD | wc -l)
     if [ $(git diff --name-only --diff-filter=ACMRT HEAD^ HEAD | wc -l) -eq "0" ]; then 
-    then
         git diff --name-only --diff-filter=ACMRT HEAD^ HEAD
     else
         echo "There are no files/folders to scan"
