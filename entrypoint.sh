@@ -14,7 +14,7 @@ then
         git diff --name-only --diff-filter=ACMRT HEAD^ HEAD
         foldername="qiacscanfolder_$(date +%Y%m%d%H%M%S)"
         mkdir $foldername
-        cp --parents "$(git diff --name-only --diff-filter=ACMRT HEAD^ HEAD)" $foldername
+        cp --parents $(git diff --name-only --diff-filter=ACMRT HEAD^ HEAD) $foldername
         cd $foldername
         SCANFOLDER="."
     fi
