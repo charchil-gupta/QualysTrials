@@ -1,5 +1,5 @@
 # Container image that runs your code
-FROM python:alpine
+FROM python:rc-alpine3.13
 
 COPY Qualys_IaC_Security-1.4.0-py3-none-any.whl /Qualys_IaC_Security-1.4.0-py3-none-any.whl
 COPY entrypoint.sh /entrypoint.sh
