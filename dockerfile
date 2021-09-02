@@ -1,7 +1,5 @@
 # Container image that runs your code
-FROM alpine
-
-RUN apk add py3-pip
+FROM python:3-alpine
 
 COPY Qualys_IaC_Security-1.4.0-py3-none-any.whl /Qualys_IaC_Security-1.4.0-py3-none-any.whl
 COPY entrypoint.sh /entrypoint.sh
