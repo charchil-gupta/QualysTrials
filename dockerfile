@@ -1,6 +1,4 @@
 # Container image that runs your code
-#FROM python:3
-
 FROM alpine
 
 RUN apk add py3-pip
