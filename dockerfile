@@ -3,7 +3,7 @@
 
 FROM alpine
 
-apk add py3-pip
+RUN apk add py3-pip
 
 COPY Qualys_IaC_Security-1.4.0-py3-none-any.whl /Qualys_IaC_Security-1.4.0-py3-none-any.whl
 COPY entrypoint.sh /entrypoint.sh
